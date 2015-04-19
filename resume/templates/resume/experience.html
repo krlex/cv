@@ -1,0 +1,18 @@
+<h2>
+<a id="experience" class="anchor" href="#experience" aria-hidden="true"><span class="octicon octicon-link"></span></a>Experience</h2>
+
+{% for job in job_list %}
+<h3>
+    <a id="ddor" class="anchor" href="#ddor" aria-hidden="true"><span class="octicon octicon-link"></span></a>{{ job.title }}</h3>
+
+<h5>
+    <a id="part-time-job-1decembar-2014---31january-2015" class="anchor" href="#part-time-job-1decembar-2014---31january-2015" aria-hidden="true"><span class="octicon octicon-link"></span></a>{{ job.duration }}</h5>
+
+<p>{{ job.description }}</p>
+
+<ul>
+    {% for job_item in job.jobitem_set.all %}
+    <li>{{ job_item.title }}</li>
+    {% endfor %}
+</ul>
+{% endfor %}
