@@ -1,17 +1,8 @@
 - name: resume
-  hosts: vagrant
-  pre_tasks:
-      - include: roles/common/pre_tasks/main.yml
-  roles:
-      - vagrant
-
-- name: resume
   hosts:  all
   pre_tasks:
-      - include: roles/common/pre_tasks/main.yml
+    - include: roles/common/pre_tasks/main.yml
   roles:
-
-- name: resume
-  hosts: vagrant
-  pre_tasks:
-      - include: roles/vagrant/pre_tasks/main.yml
+    - common
+    - resume
+    - vagrant

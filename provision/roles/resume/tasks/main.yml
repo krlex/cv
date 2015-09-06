@@ -1,42 +1,26 @@
 - name: install packages
   sudo: yes
-  with_items: liberator_packages
+  with_items: resume_packages
   apt:
     pkg: "{{ item.name }}"
     state: latest
 
 - name: install pip packages
   sudo: yes
-   pip:
-    requirements: "{{ requirements_path }}"
-    executable: pip-3.2
-
-- name: install python2 psycopg
-  sudo: yes
   pip:
-    name: psycopg2
-
-- name: create resume DB
-  sudo: yes
-  sudo_user: postgres
-  postgresql_db:
-    name: resume
-    encoding: 'UTF-8'
-    template: 'template0'
-
-- name: create resume DB user
-  sudo: yes
-  sudo_user: postgres
-  postgresql_user:
-  name: resume
-  password: liberator
-  db: liberator
-  role_attr_flags: "CREATEDB"
+    requirements: "{{ requirements_path }}"
 
 - name: migrate DB
-  command: python3 manage.py migrate
+  command: python manage.py migrate
   args:
     chdir: "{{ api_path }}"
+
+- name: migrate db
+  sudo: yes
+  sudo_user: vagrant
+  django_manage:
+    command: migrate
+    app_path: /vagrant/projects
 
 - name: put api/bin in path
   template:

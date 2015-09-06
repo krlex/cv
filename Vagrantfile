@@ -12,12 +12,9 @@ VAGRANT_ARCH = "x64" unless defined? VAGRANT_ARCH
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "resume" do |resume|
     resume.vm.box = "debian"
-        if VAGRANT_ARCH == "x64"
-        resume.vm.box_url = "https://ftp.lugons.org/vagrant/debian-7.6.0-x86_64.box"
-        end
+    resume.vm.box_url = "https://ftp.lugons.org/vagrant/debian-7.6.0-x86_64.box"
 
     resume.vm.network :private_network, ip: "192.168.55.33"
-        config.vm.boot_timeout = 600
         resume.vm.provision :ansible do |ansible|
             ansible.playbook = "provision/site.yml"
             ansible.host_key_checking = false
