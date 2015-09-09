@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('resume', '0001_initial'),
+        ('resume', '0003_auto_20150909_1646'),
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='job',
-            name='duration',
-            field=models.CharField(max_length=200, null=True, blank=True),
+        migrations.AlterField(
+            model_name='personal',
+            name='description',
+            field=models.TextField(null=True, blank=True),
         ),
     ]

@@ -10,11 +10,11 @@
   GNU/Linux Administrator
 </h6>
 
+{% for personal in personal_list %}
 <ul>
-  <li>e-mail: <a href="mailto:krle@lugons.org">krle@lugons.org</a></li>
+  <li>e-mail:<a href="mailto:{{ personal.email }}">{{ personal.email}}</a></li>
 </ul>
 
-{% for personal in personal_list %}
 <h2>
   <a
     id="personal-statement"
@@ -28,6 +28,6 @@
 </h2>
 
 <blockquote>
-  <p>{{ personal.description }}</p>
+  {{ personal.description|linebreaks }}
 </blockquote>
 {% endfor %}

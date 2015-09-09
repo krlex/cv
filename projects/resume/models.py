@@ -1,12 +1,12 @@
 from django.db import models
 
-
 class Personal(models.Model):
     title = models.CharField(max_length=200)
-    description = models.CharField(max_length=500, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    email = models.EmailField()
 
     def __unicode__(self):
-        return self.about.title
+        return self.title
 
 
 class Job(models.Model):
