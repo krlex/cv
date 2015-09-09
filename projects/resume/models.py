@@ -6,7 +6,8 @@ class Personal(models.Model):
     description = models.CharField(max_length=500, blank=True, null=True)
 
     def __unicode__(self):
-        return self.title
+        return self.about.title
+
 
 class Job(models.Model):
     title = models.CharField(max_length=200)
