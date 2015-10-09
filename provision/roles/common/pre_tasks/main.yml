@@ -1,8 +1,9 @@
 - name: update apt
   sudo: yes
-   apt:
+  apt:
     update_cache: yes
     cache_valid_time: 3600
+<<<<<<< HEAD
 
 - name: add backports repo
   sudo: yes
@@ -12,3 +13,5 @@
     owner: root
     group: root
      mode: 0644
+=======
+>>>>>>> 20ff0e4378b16f498e257c85f043079f8f65e646

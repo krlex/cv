@@ -1,5 +1,5 @@
 ---
-requirements_path: /vagrant/projects/api/requirements.txt
-requirements_dev_path: /vagrant/projects/api/requirements-dev.txt
-api_path: /vagrant/projects/api
-api_settings_path: "{{ api_path }}/project/settings/__init__.py"
+requirements_path: /vagrant/projects/requirements.txt
+requirements_dev_path: /vagrant/projects/requirements_dev.txt
+api_path: /vagrant/projects
+api_settings_path: "{{ api_path }}/project/settings.py"
